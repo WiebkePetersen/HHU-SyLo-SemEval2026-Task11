@@ -1,0 +1,517 @@
+{
+"LogSimpEx": [
+        [
+            "A house is a building. Anything that is a star is a spoon. Any fire is frozen. Every house is a place to live.",
+            ["all House is Building", "all Star is Spoon", "all Fire is Frozen", "all House is Place_to_Live"]
+        ],
+        [
+            "Every square is a rectangle. Every rectangle is a polygon. No circle is a polygon. Some circles are not squares.",
+            ["all Square is Rectangle", "all Rectangle is Polygon", "no Circle is Polygon", "some Circle is not Square"]
+        ],
+        [
+            "Not a single land-dwelling amphibian is able to survive in saltwater. Any salamander is a land-dwelling amphibian. This implies that no salamander is able to live in saltwater.",
+            ["no Land_Dwelling_Amphibian is Live_In_Saltwater", "all Salamander is Land_Dwelling_Amphibian", "no Salamander is Live_In_Saltwater"]
+        ],
+        [
+            "No bird is not an animal. Every bird has wings. Some creatures are not birds.",
+            ["all Bird is Animal", "all Bird is Thing_with_Wings", "some Creature is not Bird"]
+        ],
+        [
+            "Doctors and engineers are mutually exclusive. Every doctor is a person. Therefore, no engineer is a doctor.",
+            ["no Doctor is Engineer", "all Doctor is Person", "no Engineer is Doctor"]
+        ]
+    ],
+    "SyllTripEx": [
+        [
+            "A house is a building. Anything that is a star is a spoon. Any fire is frozen. Every house is a place to live.",
+            ["('a', 'House', 'Building')", "('a', 'Star', 'Spoon')", "('a', 'Fire', 'Frozen')", "('a', 'House', 'Place_To_Live')"]
+        ],
+        [
+            "Every square is a rectangle. Every rectangle is a polygon. No circle is a polygon. Some circles are not squares.",
+            ["('a', 'Square', 'Rectangle')", "('a', 'Rectangle', 'Polygon')", "('e', 'Circle', 'Polygon')", "('o', 'Circle', 'Square')"]
+        ],
+        [
+            "Not a single land-dwelling amphibian is able to survive in saltwater. Any salamander is a land-dwelling amphibian. This implies that no salamander is able to live in saltwater.",
+            ["('e', 'Land_Dwelling_Amphibian', 'Live_In_Saltwater')", "('a', 'Salamander', 'Land_Dwelling_Amphibian')", "('e', 'Salamander', 'Live_In_Saltwater')"]
+        ],
+        [
+            "All automobiles are self-propelled vehicles. Every self-propelled vehicle is an automobile. No animal is an automobile. Therefore, no animal is a self-propelled vehicle.",
+            ["('a', 'Automobile', 'Self_Propelled_Vehicle')", "('a', 'Self_Propelled_Vehicle', 'Automobile')", "('e', 'Animal', 'Automobile')", "('e', 'Animal', 'Self_Propelled_Vehicle')"]
+        ]
+    ],
+    "SimpSyllTripEx": [
+        [
+            "all House is Building. all Star is Spoon. all Fire is Frozen. all House is Place_To_Live.",
+            ["('a', 'House', 'Building')", "('a', 'Star', 'Spoon')", "('a', 'Fire', 'Frozen')", "('a', 'House', 'Place_To_Live')"]
+        ],
+        [
+            "all Square is Rectangle. all Rectangle is Polygon. no Circle is Polygon. some Circle is not Square.",
+            ["('a', 'Square', 'Rectangle')", "('a', 'Rectangle', 'Polygon')", "('e', 'Circle', 'Polygon')", "('o', 'Circle', 'Square')"]
+        ],
+        [
+            "Not a single land-dwelling amphibian is able to survive in saltwater. Any salamander is a land-dwelling amphibian. This implies that no salamander is able to live in saltwater.",
+            ["('e', 'Land_Dwelling_Amphibian', 'Live_In_Saltwater')", "('a', 'Salamander', 'Land_Dwelling_Amphibian')", "('e', 'Salamander', 'Live_In_Saltwater')"]
+        ],
+        [
+            "all Automobile is Self_Propelled_Vehicle. all Self_Propelled_Vehicle is Automobile. no Animal is Automobile. therefore, no Animal is Self_Propelled_Vehicle.",
+            ["('a', 'Automobile', 'Self_Propelled_Vehicle')", "('a', 'Self_Propelled_Vehicle', 'Automobile')", "('e', 'Animal', 'Automobile')", "('e', 'Animal', 'Self_Propelled_Vehicle')"]
+        ]
+    ],
+    "Eng2FOLex": [
+        [
+            "Not all canines are aquatic creatures known as fish. It is certain that no fish belong to the class of mammals. Therefore, every canine falls under the category of mammals.",
+            ["exists x ( Canine(x) & -Fish(x) )", "all x ( Fish(x) -> -Mammal(x) )", "all x ( Canine(x) -> Mammal(x) )"]
+        ],
+        [
+            "All birds lay eggs. All chickens lay eggs. All chickens are birds.",
+            ["all x ( Bird(x) -> LaysEggs(x) )", "all x ( Chicken(x) -> LaysEggs(x) )", "all x ( Chicken(x) -> Bird(x) )"]
+        ],
+        [
+            "Some musicians possess creativity. Every musician is an artist. Consequently, every artist is a creative individual.",
+            ["exists x ( Musician(x) & Possesses_Creativity(x) )", "all x ( Musician(x) -> Artist(x) )", "all x ( Artist(x) -> Possesses_Creativity(x) )"]
+        ]
+    ],
+    "Eng2FOLexImproved": [
+        [
+            "Not all canines are aquatic creatures known as fish. It is certain that no fish belong to the class of mammals. Therefore, every canine falls under the category of mammals.",
+            ["exists x ( Canine(x) & -Fish(x) )", "all x ( Fish(x) -> -Mammal(x) )", "all x ( Canine(x) -> Mammal(x) )"]
+        ],
+        [
+            "All birds lay eggs. All chickens lay eggs. All chickens are birds.",
+            ["all x ( Bird(x) -> LaysEggs(x) )", "all x ( Chicken(x) -> LaysEggs(x) )", "all x ( Chicken(x) -> Bird(x) )"]
+        ],
+        [
+            "Some musicians possess creativity. Every musician is an artist. Consequently, every artist is a creative individual.",
+            ["exists x ( Musician(x) & Creative(x) )", "all x ( Musician(x) -> Artist(x) )", "all x ( Artist(x) -> Creative(x) )"]
+        ],
+        [
+            "Any salad you eat is actually a saw. There are no tacos that are not screwdrivers. A slice of pizza is a type of food. As such, some food are saws.",
+            ["all x ( Salad(x) -> Saw(x) )", "all x ( Taco(x) -> Screwdriver(x) )", "all x ( Pizza(x) -> Food(x) )", "exists x ( Food(x) & Saw(x) )"]
+        ],
+        [
+            "Every pepper is healthy. Some peppers are red or yellow. Therefore, some healthy things are red.",
+            ["all x ( Pepper(x) -> Healthy(x) )", "exists x ( Pepper(x) & ( Red(x) | Yellow(x) ) )", "exists x ( Healthy(x) & Red(x) )"]
+        ]
+    ],
+    "Eng2FOLexImprovedX": [
+        [
+            "No reptile has fur. Every lizard is a reptile. Consequently, no lizard has fur.",         
+            ["all x ( Reptile(x) -> -HasFur(x) )", "all x ( Lizard(x) -> Reptile(x) )", "all x ( Lizard(x) -> -HasFur(x) )"]
+        ],
+        [
+            "All birds lay eggs. All chickens lay eggs. All chickens are birds.",
+            ["all x ( Bird(x) -> LaysEggs(x) )", "all x ( Chicken(x) -> LaysEggs(x) )", "all x ( Chicken(x) -> Bird(x) )"]
+        ],
+        [
+            "Any salad you eat is actually a saw. There are no tacos that are not screwdrivers. A slice of pizza is a type of food. As such, some food are saws.",
+            ["all x ( Salad(x) -> Saw(x) )", "all x ( Taco(x) -> Screwdriver(x) )", "all x ( Pizza(x) -> Food(x) )", "exists x ( Food(x) & Saw(x) )"]
+        ],
+        [
+            "Some musicians possess creativity. Every musician is an artist. Consequently, every artist is a creative individual.",
+            ["exists x ( Musician(x) & Creative(x) )", "all x ( Musician(x) -> Artist(x) )", "all x ( Artist(x) -> Creative(x) )"]
+        ],
+        [
+            "No circle is a square. A number of shapes are circles. Thus, a portion of shapes are not squares.",
+            ["all x ( Circle(x) -> -Square(x) )", "exists x ( Shape(x) & Circle(x) )", "exists x ( Shape(x) & -Square(x) )"]
+        ],
+        [
+            "Every pepper is healthy. Some peppers are red or yellow. Therefore, some healthy things are red.",
+            ["all x ( Pepper(x) -> Healthy(x) )", "exists x ( Pepper(x) & ( Red(x) | Yellow(x) ) )", "exists x ( Healthy(x) & Red(x) )"]
+        ],
+        [
+            "All sunflowers are tall plants. Some sunflowers are not yellow. It follows that some tall plants are not yellow.",
+            ["all x ( Sunflower(x) -> Tall(x) )", "exists x ( Sunflower(x) & -Yellow(x) )", "exists x ( Tall(x) & -Yellow(x) )"]
+        ],
+        [
+            "Not all canines are aquatic creatures known as fish. It is certain that no fish belong to the class of mammals. Therefore, every canine falls under the category of mammals.",
+            ["exists x ( Canine(x) & -Fish(x) )", "all x ( Fish(x) -> -Mammal(x) )", "all x ( Canine(x) -> Mammal(x) )"]
+        ]
+    ],
+    "Eng2FOLexImproved2": [
+    [
+      "Every experienced pilot is a trained professional. All trained professionals undergo regular medical checks. Anyone who undergoes regular medical checks is concerned about their health. People concerned about their health avoid smoking. Therefore, every experienced pilot avoids smoking.",
+      [
+        "all x ( Pilot(x) -> Professional(x) )",
+        "all x ( Professional(x) -> Medical_Check(x) )",
+        "all x ( Medical_Check(x) -> Health_Conscious(x) )",
+        "all x ( Health_Conscious(x) -> -Smokes(x) )",
+        "all x ( Pilot(x) -> -Smokes(x) )"
+      ]
+    ],
+    [
+      "All mammals are animals. Some animals are pets. Consequently, some mammals are pets.",
+      [
+        "all x ( Mammal(x) -> Animal(x) )",
+        "exists x ( Animal(x) & Pet(x) )",
+        "exists x ( Mammal(x) & Pet(x) )"
+      ]
+    ],
+    [
+      "Every cloud is a piece of sweet chocolate. Anything that is a piece of sweet chocolate is a heavy stone. All heavy stones are able to fly through the air. Therefore, every cloud is able to fly.",
+      [
+        "all x ( Cloud(x) -> Chocolate(x) )",
+        "all x ( Chocolate(x) -> Stone(x) )",
+        "all x ( Stone(x) -> Fly(x) )",
+        "all x ( Cloud(x) -> Fly(x) )"
+      ]
+    ],
+    [
+      "A fast aggressive marathon runner is always a human being. Every human being needs oxygen to survive. By the way, the grass is green in summer. Thus, a marathon runner needs oxygen to survive.",
+      [
+        "all x ( Marathon_Runner(x) -> Human(x) )",
+        "all x ( Human(x) -> Oxygen(x) )",
+        "all x ( Marathon_Runner(x) -> Oxygen(x) )"
+      ]
+    ],
+    [
+      "All birds lay eggs. All chickens lay eggs. Therefore, all chickens are birds.",
+      [
+        "all x ( Bird(x) -> Lays_Eggs(x) )",
+        "all x ( Chicken(x) -> Lays_Eggs(x) )",
+        "all x ( Chicken(x) -> Bird(x) )"
+      ]
+    ],
+    [
+      "Every successful manager is hardworking. Some hardworking people are both wealthy and happy. Therefore, every successful manager is wealthy.",
+      [
+        "all x ( Manager(x) -> Hardworking(x) )",
+        "exists x ( Hardworking(x) & ( Wealthy(x) & Happy(x) ) )",
+        "all x ( Manager(x) -> Wealthy(x) )"
+      ]
+    ],
+    [
+      "No refrigerator is a toaster. Some sour apples are either red or yellow. A big yellow bus is driving past the house. Consequently, some toasters are cold.",
+      [
+        "all x ( Refrigerator(x) -> -Toaster(x) )",
+        "exists x ( Apple(x) & ( Red(x) | Yellow(x) ) )",
+        "exists x ( Toaster(x) & Cold(x) )"
+      ]
+    ],
+    [
+      "Every salad is a saw. Every small bread is a hammer. All saws are made of metal. Hammers are useful tools. Therefore, some bread are saws.",
+      [
+        "all x ( Salad(x) -> Saw(x) )",
+        "all x ( Bread(x) -> Hammer(x) )",
+        "all x ( Saw(x) -> Metal(x) )",
+        "all x ( Hammer(x) -> Tool(x) )",
+        "exists x ( Bread(x) & Saw(x) )"
+      ]
+    ]
+  ],
+  "Eng2FOLexVaried":
+[
+    [
+        "Every single reptile is a cold-blooded animal. Each and every cobra is a reptile. Consequently, all cobras are cold-blooded animals.",
+        ["all x ( Reptile(x) -> ColdBlooded(x) )", "all x ( Cobra(x) -> Reptile(x) )", "all x ( Cobra(x) -> ColdBlooded(x) )"]
+    ],
+    [
+        "There are no individuals who are professional deep-sea divers that are also people who cannot swim. All certified rescue divers are professional deep-sea divers. It can be deduced that no certified rescue divers are people who cannot swim.",
+        ["all x ( (Diver(x) & Professional(x) & DeepSea(x)) -> -CannotSwim(x) )", "all x ( (Diver(x) & Certified(x) & Rescue(x)) -> (Diver(x) & Professional(x) & DeepSea(x)) )", "all x ( (Diver(x) & Certified(x) & Rescue(x)) -> -CannotSwim(x) )"]
+    ],
+    [
+        "There exist some animals that are grey squirrels. Every single grey squirrel is a forest dweller. It can be deduced that every single animal is a forest dweller.",
+        ["exists x ( Animal(x) & (Squirrel(x) & Grey(x)) )", "all x ( (Squirrel(x) & Grey(x)) -> ForestDweller(x) )", "all x ( Animal(x) -> ForestDweller(x) )"]
+    ],
+    [
+        "Every single ancient artifact is a delicate object that requires climate control. There exist some statues found in the desert that are not delicate and do not require climate control. Consequently, some statues found in the desert are not ancient artifacts.",
+        ["all x ( AncientArtifact(x) -> (Delicate(x) & RequiresClimateControl(x)) )", "exists x ( (Statue(x) & FoundInDesert(x)) & (-Delicate(x) & -RequiresClimateControl(x)) )", "exists x ( (Statue(x) & FoundInDesert(x)) & -AncientArtifact(x) )"]
+    ],
+    [
+        "It is the case that no tropical plants are organisms capable of surviving a frost. Every single cactus in the botanical garden is an organism capable of surviving a frost. Cacti in the botanical garden are not tropical plants.",
+        ["all x ( (Plant(x) & Tropical(x)) -> -CapableOfSurvivingFrost(x) )", "all x ( (Cactus(x) & InBotanicalGarden(x)) -> CapableOfSurvivingFrost(x) )", "all x ( (Cactus(x) & InBotanicalGarden(x)) -> -(Plant(x) & Tropical(x)) )"]
+    ],
+    [
+        "Each and every person who owns a luxury yacht is a member of the exclusive coastal club. There exist some teachers from the local school who are members of the exclusive coastal club. Thus, some teachers from the local school are people who own a luxury yacht.",
+        ["all x ( (Person(x) & OwnsLuxuryYacht(x)) -> MemberOfCoastalClub(x) )", "exists x ( (Teacher(x) & LocalSchool(x)) & MemberOfCoastalClub(x) )", "exists x ( (Teacher(x) & LocalSchool(x)) & (Person(x) & OwnsLuxuryYacht(x)) )"]
+    ],
+    [
+        "No triangle is a circle. Each and every equilateral shape is a triangle. It follows that no equilateral shape is a circle.",
+        ["all x ( Triangle(x) -> -Circle(x) )", "all x ( EquilateralShape(x) -> Triangle(x) )", "all x ( EquilateralShape(x) -> -Circle(x) )"]
+    ],
+    [
+        "There exist some rare gemstones that are not valuable assets for investment. Every single rare gemstone is a mineral formed under high pressure. Consequently, some minerals formed under high pressure are valuable assets for investment.",
+        ["exists x ( (Gemstone(x) & Rare(x)) & -ValuableAssetForInvestment(x) )", "all x ( (Gemstone(x) & Rare(x)) -> (Mineral(x) & FormedUnderHighPressure(x)) )", "exists x ( (Mineral(x) & FormedUnderHighPressure(x)) & ValuableAssetForInvestment(x) )"]
+    ]
+],
+  "MultiLingexImproved": [
+    [
+      "Der wütende Chef schreit, dass alle faulen Ärzte oder Anwälte reiche Leute sind. Hans ist ein fauler Arzt. Also ist Hans eine reiche Person.",
+      [
+        "all x ( (LazyDoctor(x) | Lawyer(x)) -> RichPerson(x) )",
+        "all x ( Hans(x) -> LazyDoctor(x) )",
+        "all x ( Hans(x) -> RichPerson(x) )"
+      ]
+    ],
+    [
+      "Ein dummes Buch sagt, alle Katzen oder Hunde sind süße Tiere. Dieses Ding ist ein süßes Tier. Also ist dieses Ding eine Katze oder Hund.",
+      [
+        "all x ( (Cat(x) | Dog(x)) -> CuteAnimal(x) )",
+        "all x ( Thing(x) -> CuteAnimal(x) )",
+        "all x ( Thing(x) -> (Cat(x) | Dog(x)) )"
+      ]
+    ],
+    [
+      "Mi abuela loca dice que ningún coche rojo o camión azul es un vehículo seguro. Este Ferrari es un coche rojo. Así que este Ferrari no es un vehículo seguro.",
+      [
+        "all x ( (RedCar(x) | BlueTruck(x)) -> -SafeVehicle(x) )",
+        "all x ( Ferrari(x) -> RedCar(x) )",
+        "all x ( Ferrari(x) -> -SafeVehicle(x) )"
+      ]
+    ],
+    [
+      "El político mentiroso afirma que todos los actores ricos o cantantes son personas felices. Algunos criminales son personas felices. Por lo tanto, algunos criminales son actores ricos o cantantes.",
+      [
+        "all x ( (RichActor(x) | Singer(x)) -> HappyPerson(x) )",
+        "exists x ( Criminal(x) & HappyPerson(x) )",
+        "exists x ( Criminal(x) & (RichActor(x) | Singer(x)) )"
+      ]
+    ],
+    [
+      "Le professeur ennuyeux explique que tout soldat courageux ou marin est un héros. Pierre est un soldat courageux. Donc Pierre est un héros.",
+      [
+        "all x ( (BraveSoldier(x) | Sailor(x)) -> Hero(x) )",
+        "all x ( Pierre(x) -> BraveSoldier(x) )",
+        "all x ( Pierre(x) -> Hero(x) )"
+      ]
+    ],
+    [
+      "Mon journal stupide écrit que tous les chats noirs ou chiens sont des mammifères. Certains animaux étranges sont des mammifères. Donc certains animaux étranges sont des chats noirs ou chiens.",
+      [
+        "all x ( (BlackCat(x) | Dog(x)) -> Mammal(x) )",
+        "exists x ( StrangeAnimal(x) & Mammal(x) )",
+        "exists x ( StrangeAnimal(x) & (BlackCat(x) | Dog(x)) )"
+      ]
+    ],
+    [
+      "Mio zio ubriaco urla che nessun politico onesto o giudice è un criminale. Questo uomo è un politico onesto. Quindi questo uomo non è un criminale.",
+      [
+        "all x ( (HonestPolitician(x) | Judge(x)) -> -Criminal(x) )",
+        "all x ( Man(x) -> HonestPolitician(x) )",
+        "all x ( Man(x) -> -Criminal(x) )"
+      ]
+    ],
+    [
+      "La rivista di moda dice che se indossi vestiti rossi o blu, sei elegante. Maria è elegante. Quindi Maria indossa vestiti rossi o blu.",
+      [
+        "all x ( (WearsRed(x) | WearsBlue(x)) -> Elegant(x) )",
+        "all x ( Maria(x) -> Elegant(x) )",
+        "all x ( Maria(x) -> (WearsRed(x) | WearsBlue(x)) )"
+      ]
+    ],
+    [
+      "De boze leraar zegt dat alle snelle auto's of motoren gevaarlijke dingen zijn. Deze Ferrari is een snelle auto. Dus deze Ferrari is een gevaarlijk ding.",
+      [
+        "all x ( (FastCar(x) | Motorcycle(x)) -> DangerousThing(x) )",
+        "all x ( Ferrari(x) -> FastCar(x) )",
+        "all x ( Ferrari(x) -> DangerousThing(x) )"
+      ]
+    ],
+    [
+      "Een gekke man gelooft dat alle grote vogels of vissen dieren zijn. Sommige monsters zijn dieren. Dus sommige monsters zijn grote vogels of vissen.",
+      [
+        "all x ( (BigBird(x) | Fish(x)) -> Animal(x) )",
+        "exists x ( Monster(x) & Animal(x) )",
+        "exists x ( Monster(x) & (BigBird(x) | Fish(x)) )"
+      ]
+    ],
+    [
+      "O padre gentil diz que todo homem bom ou mulher é uma alma salva. João é um homem bom. Portanto, João é uma alma salva.",
+      [
+        "all x ( (GoodMan(x) | Woman(x)) -> SavedSoul(x) )",
+        "all x ( Joao(x) -> GoodMan(x) )",
+        "all x ( Joao(x) -> SavedSoul(x) )"
+      ]
+    ],
+    [
+      "O vendedor falso garante que todo ouro ou prata é metal valioso. Esta pedra brilhante é metal valioso. Então esta pedra brilhante é ouro ou prata.",
+      [
+        "all x ( (Gold(x) | Silver(x)) -> ValuableMetal(x) )",
+        "all x ( ShinyStone(x) -> ValuableMetal(x) )",
+        "all x ( ShinyStone(x) -> (Gold(x) | Silver(x)) )"
+      ]
+    ],
+    [
+      "Старый дед ворчит, что все красные розы или тюльпаны — красивые цветы. Это красная роза. Значит, это красивый цветок.",
+      [
+        "all x ( (RedRose(x) | Tulip(x)) -> BeautifulFlower(x) )",
+        "all x ( This(x) -> RedRose(x) )",
+        "all x ( This(x) -> BeautifulFlower(x) )"
+      ]
+    ],
+    [
+      "Глупый студент думает: все физики или химики — умные ученые. Некоторые дураки — умные ученые. Значит, некоторые дураки — физики или химики.",
+      [
+        "all x ( (Physicist(x) | Chemist(x)) -> SmartScientist(x) )",
+        "exists x ( Fool(x) & SmartScientist(x) )",
+        "exists x ( Fool(x) & (Physicist(x) | Chemist(x)) )"
+      ]
+    ],
+    [
+      "聪明的医生说，所有吃素的人或运动员都是健康的人。小明是吃素的人。所以小明是健康的人。",
+      [
+        "all x ( (Vegetarian(x) | Athlete(x)) -> HealthyPerson(x) )",
+        "all x ( XiaoMing(x) -> Vegetarian(x) )",
+        "all x ( XiaoMing(x) -> HealthyPerson(x) )"
+      ]
+    ],
+    [
+      "那本坏书写着，所有老虎或狮子都是危险的动物。有些可爱的宠物是危险的动物。所以有些可爱的宠物是老虎或狮子。",
+      [
+        "all x ( (Tiger(x) | Lion(x)) -> DangerousAnimal(x) )",
+        "exists x ( CutePet(x) & DangerousAnimal(x) )",
+        "exists x ( CutePet(x) & (Tiger(x) | Lion(x)) )"
+      ]
+    ],
+    [
+      "Mwalimu mkali anasema wanafunzi wote wazuri au walimu ni watu wenye busara. Juma ni mwanafunzi mzuri. Kwa hivyo, Juma ni mtu mwenye busara.",
+      [
+        "all x ( (GoodStudent(x) | Teacher(x)) -> WisePerson(x) )",
+        "all x ( Juma(x) -> GoodStudent(x) )",
+        "all x ( Juma(x) -> WisePerson(x) )"
+      ]
+    ],
+    [
+      "Mtu mlevi anaimba kwamba simba wote au chui ni wanyama wakali. Paka wangu mdogo ni mnyama mkali. Kwa hivyo, paka wangu mdogo ni simba au chui.",
+      [
+        "all x ( (Lion(x) | Leopard(x)) -> FierceAnimal(x) )",
+        "all x ( MySmallCat(x) -> FierceAnimal(x) )",
+        "all x ( MySmallCat(x) -> (Lion(x) | Leopard(x)) )"
+      ]
+    ],
+    [
+      "আমার পাগল ভাই বলে, সব লাল আপেল বা কলা সুস্বাদু ফল। এটি একটি লাল আপেল। তাই এটি একটি সুস্বাদু ফল।",
+      [
+        "all x ( (RedApple(x) | Banana(x)) -> DeliciousFruit(x) )",
+        "all x ( This(x) -> RedApple(x) )",
+        "all x ( This(x) -> DeliciousFruit(x) )"
+      ]
+    ],
+    [
+      "মিথ্যাবাদী নেতা দাবি করেন, সব ধনী বা বিখ্যাত ব্যক্তি সুখী মানুষ। কিছু চোর সুখী মানুষ। সুতরাং, কিছু চোর ধনী বা বিখ্যাত ব্যক্তি।",
+      [
+        "all x ( (Rich(x) | Famous(x)) -> HappyHuman(x) )",
+        "exists x ( Thief(x) & HappyHuman(x) )",
+        "exists x ( Thief(x) & (Rich(x) | Famous(x)) )"
+      ]
+    ],
+    [
+      "మా పిచ్చి ఇరుగుపొరుగు వారు అన్ని కొత్త కార్లు లేదా బస్సులు వేగవంతమైన వాహనాలు అని అంటారు. ఇది ఒక కొత్త కారు. కాబట్టి, ఇది వేగవంతమైన వాహనం.",
+      [
+        "all x ( (NewCar(x) | Bus(x)) -> FastVehicle(x) )",
+        "all x ( This(x) -> NewCar(x) )",
+        "all x ( This(x) -> FastVehicle(x) )"
+      ]
+    ],
+    [
+      "ఒక పాత పత్రిక ప్రకారం, అన్ని నల్ల కుక్కలు లేదా పిల్లులు పెంపుడు జంతువులు. కొన్ని పులులు పెంపుడు జంతువులు. కాబట్టి, కొన్ని పులులు నల్ల కుక్కలు లేదా పిల్లులు.",
+      [
+        "all x ( (BlackDog(x) | Cat(x)) -> PetAnimal(x) )",
+        "exists x ( Tiger(x) & PetAnimal(x) )",
+        "exists x ( Tiger(x) & (BlackDog(x) | Cat(x)) )"
+      ]
+    ]
+  ],
+  "MultiLingexImprovedShort": [
+    [
+      "Der langweilige Professor behauptet, dass alle grünen Äpfel oder Birnen gesunde Snacks sind. Mein Pausenbrot ist ein grüner Apfel. Also ist mein Pausenbrot ein gesunder Snack.",
+      [
+        "all x ( (GreenApple(x) | Pear(x)) -> HealthySnack(x) )",
+        "all x ( MyLunch(x) -> GreenApple(x) )",
+        "all x ( MyLunch(x) -> HealthySnack(x) )"
+      ]
+    ],
+    [
+      "Una revista tonta dice que todos los bailarines ágiles o gimnastas son atletas fuertes. Algunos chicos delgados son atletas fuertes. Por eso, algunos chicos delgados son bailarines ágiles o gimnastas.",
+      [
+        "all x ( (AgileDancer(x) | Gymnast(x)) -> StrongAthlete(x) )",
+        "exists x ( SkinnyBoy(x) & StrongAthlete(x) )",
+        "exists x ( SkinnyBoy(x) & (AgileDancer(x) | Gymnast(x)) )"
+      ]
+    ],
+    [
+      "Нищий на улице кричит, что никакие честные банкиры или юристы не являются ворами. Этот человек — вор. Значит, этот человек не честный банкир или юрист.",
+      [
+        "all x ( (HonestBanker(x) | Lawyer(x)) -> -Thief(x) )",
+        "all x ( ThisPerson(x) -> Thief(x) )",
+        "all x ( ThisPerson(x) -> -(HonestBanker(x) | Lawyer(x)) )"
+      ]
+    ],
+    [
+      "那位生气的经理说，有些昂贵的手机或电脑是没用的东西。有些旧机器是没用的东西。所以有些旧机器是昂贵的手机或电脑。",
+      [
+        "exists x ( (ExpensivePhone(x) | Computer(x)) & UselessThing(x) )",
+        "exists x ( OldMachine(x) & UselessThing(x) )",
+        "exists x ( OldMachine(x) & (ExpensivePhone(x) | Computer(x)) )"
+      ]
+    ],
+    [
+      "Rafiki yangu mpumbavu anaimba kwamba hakuna tembo mkubwa au kifaru anayeruka. Ndege huyu anaruka. Kwa hivyo, ndege huyu sio tembo mkubwa au kifaru.",
+      [
+        "all x ( (BigElephant(x) | Rhino(x)) -> -Flies(x) )",
+        "all x ( ThisBird(x) -> Flies(x) )",
+        "all x ( ThisBird(x) -> -(BigElephant(x) | Rhino(x)) )"
+      ]
+    ],
+    [
+      "আমার অলস ছাত্র মনে করে, সব কঠিন অঙ্ক বা বিজ্ঞান বই বিরক্তিকর। এই উপন্যাসটি বিরক্তিকর। তাই এই উপন্যাসটি একটি কঠিন অঙ্ক বা বিজ্ঞান বই।",
+      [
+        "all x ( (HardMath(x) | ScienceBook(x)) -> Boring(x) )",
+        "all x ( ThisNovel(x) -> Boring(x) )",
+        "all x ( ThisNovel(x) -> (HardMath(x) | ScienceBook(x)) )"
+      ]
+    ]
+  ],
+      "Eng2FOLexLong": [  
+      [
+        "All architects are designers. Every designer is a creative person. All creative people are thinkers. Every thinker likes challenges. No individual who likes challenges is lazy. Some architects are prize winners. Therefore, some prize winners are not lazy.",
+        [
+            "all x ( Architect(x) -> Designer(x) )",
+            "all x ( Designer(x) -> Creative(x) )",
+            "all x ( Creative(x) -> Thinker(x) )",
+            "all x ( Thinker(x) -> Likes_Challenges(x) )",
+            "all x ( Likes_Challenges(x) -> -Lazy(x) )",
+            "exists x ( Architect(x) & Prize_Winner(x) )",
+            "exists x ( Prize_Winner(x) & -Lazy(x) )"
+            ]
+        ],
+        [
+            "All professors are scholars. Every scholar reads books. Anyone who reads books gains knowledge. Everyone who gains knowledge is an educator. All educators inspire students. No one who inspires students is ignored. Therefore, every professor is not ignored.",
+            [
+                "all x ( Professor(x) -> Scholar(x) )",
+                "all x ( Scholar(x) -> Reads_Books(x) )",
+                "all x ( Reads_Books(x) -> Gains_Knowledge(x) )",
+                "all x ( Gains_Knowledge(x) -> Educator(x) )",
+                "all x ( Educator(x) -> Inspires_Students(x) )",
+                "all x ( Inspires_Students(x) -> -Ignored(x) )",
+                "all x ( Professor(x) -> -Ignored(x) )"
+            ]
+        ],
+        [
+            "All musicians are creative. Every creative person is a dreamer. Some dreamers are poets. All poets write lyrics. Every lyrics writer is a songwriter. No songwriter is a silent person. Some musicians are famous. Therefore, all famous people are poets.",
+            [
+                "all x ( Musician(x) -> Creative(x) )",
+                "all x ( Creative(x) -> Dreamer(x) )",
+                "exists x ( Dreamer(x) & Poet(x) )",
+                "all x ( Poet(x) -> Writes_Lyrics(x) )",
+                "all x ( Writes_Lyrics(x) -> Songwriter(x) )",
+                "all x ( Songwriter(x) -> -Silent(x) )",
+                "exists x ( Musician(x) & Famous(x) )",
+                "all x ( Famous(x) -> Poet(x) )"
+            ]
+        ],
+        [
+            "Every pilot is trained. All trained people follow rules. Anyone who follows rules is disciplined. Some disciplined people are soldiers. All soldiers wear uniforms. Every person wearing a uniform is easily spotted. No pilot is a civilian. Consequently, every disciplined person is a pilot.",
+            [
+                "all x ( Pilot(x) -> Trained(x) )",
+                "all x ( Trained(x) -> Follows_Rules(x) )",
+                "all x ( Follows_Rules(x) -> Disciplined(x) )",
+                "exists x ( Disciplined(x) & Soldier(x) )",
+                "all x ( Soldier(x) -> Wears_Uniform(x) )",
+                "all x ( Wears_Uniform(x) -> Easily_Spotted(x) )",
+                "all x ( Pilot(x) -> -Civilian(x) )",
+                "all x ( Disciplined(x) -> Pilot(x) )"
+            ]
+        ]
+    ]
+
+}

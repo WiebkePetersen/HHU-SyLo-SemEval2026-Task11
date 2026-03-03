@@ -1,0 +1,107 @@
+{
+    "Eng2FOLexLong": [  
+      [
+        "All architects are designers. Every designer is a creative person. All creative people are thinkers. Every thinker likes challenges. No individual who likes challenges is lazy. Some architects are prize winners. Therefore, some prize winners are not lazy.",
+        [
+            "all x ( Architect(x) -> Designer(x) )",
+            "all x ( Designer(x) -> Creative(x) )",
+            "all x ( Creative(x) -> Thinker(x) )",
+            "all x ( Thinker(x) -> Likes_Challenges(x) )",
+            "all x ( Likes_Challenges(x) -> -Lazy(x) )",
+            "exists x ( Architect(x) & Prize_Winner(x) )",
+            "exists x ( Prize_Winner(x) & -Lazy(x) )"
+            ]
+        ],
+        [
+            "All professors are scholars. Every scholar reads books. Anyone who reads books gains knowledge. Everyone who gains knowledge is an educator. All educators inspire students. No one who inspires students is ignored. Therefore, every professor is not ignored.",
+            [
+                "all x ( Professor(x) -> Scholar(x) )",
+                "all x ( Scholar(x) -> Reads_Books(x) )",
+                "all x ( Reads_Books(x) -> Gains_Knowledge(x) )",
+                "all x ( Gains_Knowledge(x) -> Educator(x) )",
+                "all x ( Educator(x) -> Inspires_Students(x) )",
+                "all x ( Inspires_Students(x) -> -Ignored(x) )",
+                "all x ( Professor(x) -> -Ignored(x) )"
+            ]
+        ],
+        [
+            "All musicians are creative. Every creative person is a dreamer. Some dreamers are poets. All poets write lyrics. Every lyrics writer is a songwriter. No songwriter is a silent person. Some musicians are famous. Therefore, all famous people are poets.",
+            [
+                "all x ( Musician(x) -> Creative(x) )",
+                "all x ( Creative(x) -> Dreamer(x) )",
+                "exists x ( Dreamer(x) & Poet(x) )",
+                "all x ( Poet(x) -> Writes_Lyrics(x) )",
+                "all x ( Writes_Lyrics(x) -> Songwriter(x) )",
+                "all x ( Songwriter(x) -> -Silent(x) )",
+                "exists x ( Musician(x) & Famous(x) )",
+                "all x ( Famous(x) -> Poet(x) )"
+            ]
+        ],
+        [
+            "Every pilot is trained. All trained people follow rules. Anyone who follows rules is disciplined. Some disciplined people are soldiers. All soldiers wear uniforms. Every person wearing a uniform is easily spotted. No pilot is a civilian. Consequently, every disciplined person is a pilot.",
+            [
+                "all x ( Pilot(x) -> Trained(x) )",
+                "all x ( Trained(x) -> Follows_Rules(x) )",
+                "all x ( Follows_Rules(x) -> Disciplined(x) )",
+                "exists x ( Disciplined(x) & Soldier(x) )",
+                "all x ( Soldier(x) -> Wears_Uniform(x) )",
+                "all x ( Wears_Uniform(x) -> Easily_Spotted(x) )",
+                "all x ( Pilot(x) -> -Civilian(x) )",
+                "all x ( Disciplined(x) -> Pilot(x) )"
+            ]
+        ]
+    ]
+}
+
+
+
+  QwenEng2FOL7:
+    model: "Qwen/Qwen3-4B-Instruct-2507"
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL7"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX" 
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 1
+
+
+  QwenEng2FOL8:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL8"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexLong"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 1
+
+
+  Eng2FOL9:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexLong"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 1
+

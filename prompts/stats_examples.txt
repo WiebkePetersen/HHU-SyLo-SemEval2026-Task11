@@ -1,0 +1,24 @@
+Examples.json
+
+Plausibel / Valide    :33
+Plausibel / Invalide  :25
+Implausibel / Valide  :8
+Implausibel / Invalide:11
+Gesamt: 77
+
+
+Implausibel/Valide (IV), Plausibel/Valide (PV), Implausibel/Invalide (II) und Plausibel/Invalide (PI) 
+
+Experiment,               IV   PV  II  PI  Gesamt
+LogSimpEx,                1    4   0    0  5
+SyllTripEx                1    3   0    0  4
+SimpSyllTripEx            1    3   0    0  4
+Eng2FOLex                 0    0   1    2  3
+Eng2FOLexImproved         0    0   2    3  5
+Eng2FOLexImprovedX        0    3   2    3  8
+Eng2FOLexImproved2        2    2   2    2  8 
+Eng2FOLexVaried	          0    5   1	2  8
+MultiLingexImproved	  2    9   1	10 22
+MultiLingexImprovedShort  1    2   0	3  6
+Eng2FOLexLong             0    2   2    0  4
+gesamt                    9    33  11   25 77

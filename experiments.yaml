@@ -1,0 +1,901 @@
+experiments: 
+  Simp1:
+    model: "HuggingFaceTB/SmolLM3-3B"
+    input_key: "syllogism"
+    output_key: "syllogism_simplified_Simp1"
+    output_type: "list"
+    task_description: >
+      Translate original sentences to logical pseudo English. 
+      Restrict vocabulary to  "all ... is ...", "some ... is ...", "no ... is ...", ""some ... is not ...". 
+      Use only singular. Write predicates and subjects capitalized. 
+      No fill words. Multi-word expressions are aggregated with _ 
+    system_prompt: "LogSimp"
+    examples: "LogSimpEx"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 8
+
+
+
+  Simp2:
+    model: "HuggingFaceTB/SmolLM3-3B"
+    input_key: "syllogism"
+    output_key: "syllogism_simplified_Simp2"
+    output_type: "list"
+    task_description: >
+      Translate original sentences to logical pseudo English. 
+      Restrict vocabulary to  "all ... is ...", "some ... is ...", "no ... is ...", ""some ... is not ...". 
+      Use only singular. Write predicates and subjects capitalized. 
+      No fill words. Multi-word expressions are aggregated with _
+      Shorter prompt 
+    system_prompt: "LogSimpShortPrompt"
+    examples: "LogSimpEx"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 8
+
+
+
+  Eng2SyllogismProlog:
+    model: "HuggingFaceTB/SmolLM3-3B"
+    input_key: "syllogism"
+    output_key: "aristotelian_output_Eng2SyllogismProlog"
+    output_type: "list"
+    task_description: >
+      Given a list of English sentences translate them to Aristotelian syllogistic notation. 
+    system_prompt: "SyllTrip"
+    examples: "SyllTripEx"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 8
+
+
+
+  SimpEng2SyllogismProlog:
+    model: "HuggingFaceTB/SmolLM3-3B"
+    input_key: "syllogism_simplified_Simp1"
+    output_key: "aristotelian_output_SimpEng2SyllogismProlog"
+    output_type: "list"
+    task_description: >
+      Given a list of simplified logical English sentences translate them to Aristotelian syllogistic notation. 
+    system_prompt: "SyllTrip"
+    examples: "SimpSyllTripEx"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 8
+
+
+
+  Eng2FOL:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOL"
+    examples: "Eng2FOLex"
+    params:
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  SimpEng2FOL1:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism_simplified_Simp1"
+    output_key: "fol_otter_output_SimpEng2FOL1"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOL"
+    examples: "Eng2FOLex"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  SimpEng2FOL2:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism_simplified_Simp2"
+    output_key: "fol_otter_output_SimpEng2FOL2"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOL"
+    examples: "Eng2FOLex"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL2:
+    model: "meta-llama/Llama-3.2-3B-Instruct" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL2"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLimproved"
+    examples: "Eng2FOLexImproved"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL3:
+    model: "meta-llama/Llama-3.2-3B-Instruct" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL3"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL4:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL4"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLimproved"
+    examples: "Eng2FOLexImproved"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL5:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL6:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL6"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImproved" # test with less examples given
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL7:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL7"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOL" 
+    examples: "Eng2FOLexImprovedX" 
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL5multilingual:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Eng2FOL5multilingual"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL5small:
+    model: "HuggingFaceTB/SmolLM2-1.7B-Instruct" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5small"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL5tiny:
+    model: "HuggingFaceTB/SmolLM2-135M-Instruct" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5tiny"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL5Gemma2B:
+    model: "google/gemma-2-2b-it" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5Gemma2B"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL5Qwen1.7B:
+    model: "Qwen/Qwen3-1.7B"
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5Qwen1.7B"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  Eng2FOL5Qwen0.6B:
+    model: "Qwen/Qwen3-0.6B"
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5Qwen0.6B"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  Eng2FOL5Qwen4B:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL5Qwen4B"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  Eng2FOL8:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL8"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImproved2"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+  Eng2FOLmultilingualNew:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Eng2FOLmultilingualNew"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImproved"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOLmultilingualNewShort:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Eng2FOLmultilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImprovedShort"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL5multilingualNew:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Eng2FOL5multilingualNew"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingEng2FOLUltrashort"
+    examples: "MultiLingexImproved"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  Eng2FOL5multilingualNewShort:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Eng2FOL5multilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingEng2FOLUltrashort"
+    examples: "MultiLingexImprovedShort"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  QwenEng2FOL1:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL1"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImproved2"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOL2:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL2"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImproved"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOL3:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL3"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLex"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOL4:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL4"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLimproved"
+    examples: "Eng2FOLexImproved"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+      
+  QwenEng2FOL5:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL5"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOL"
+    examples: "Eng2FOLexImproved"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOL6:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL6"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLimproved"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+# ab hier neu
+  QwenEng2FOL5multilingual:
+    model: "Qwen/Qwen3-4B-Instruct-2507" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL5multilingual"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+
+  QwenEng2FOLmultilingualNew:
+    model: "Qwen/Qwen3-4B-Instruct-2507" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_QwenEng2FOLmultilingualNew"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImproved"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOLmultilingualNewShort:
+    model: "Qwen/Qwen3-4B-Instruct-2507" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_QwenEng2FOLmultilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImprovedShort"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOL5multilingualNew:
+    model: "Qwen/Qwen3-4B-Instruct-2507" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL5multilingualNew"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingEng2FOLUltrashort"
+    examples: "MultiLingexImproved"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+  QwenEng2FOL5multilingualNewShort:
+    model: "Qwen/Qwen3-4B-Instruct-2507" # Or your preferred model
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_QwenEng2FOL5multilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingEng2FOLUltrashort"
+    examples: "MultiLingexImprovedShort"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+
+  Eng2FOL9:
+    model: "HuggingFaceTB/SmolLM3-3B"
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL9"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexVaried"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL9Qwen4B:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL9Qwen4B"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexVaried"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 
+      batch_size: 8
+
+
+
+  Eng2FOL10:
+    model: "HuggingFaceTB/SmolLM3-3B"
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL10"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLimproved"
+    examples: "Eng2FOLexVaried"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Eng2FOL10Qwen4B:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL10Qwen4B"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLimproved"
+    examples: "Eng2FOLexVaried"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 
+      batch_size: 8
+
+
+
+
+  GemmaEng2FOL5multilingualNewShort:
+    model: "google/gemma-2-2b-it" 
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_GemmaEng2FOL5multilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingEng2FOLUltrashort"
+    examples: "MultiLingexImprovedShort"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+  GemmaEng2FOLmultilingualNewShort:
+    model: "google/gemma-2-2b-it" 
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_GemmaEng2FOLmultilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImprovedShort"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  Gemma3Eng2FOL5multilingualNewShort:
+    model: "google/gemma-3-4b-it" 
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Gemma3Eng2FOL5multilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingEng2FOLUltrashort"
+    examples: "MultiLingexImprovedShort"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 6
+
+
+
+  Gemma3Eng2FOLmultilingualNewShort:
+    model: "google/gemma-3-4b-it" 
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Gemma3Eng2FOLmultilingualNewShort"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImprovedShort"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 6
+
+
+  Gemma3Eng2FOLmultilingualNew:
+    model: "google/gemma-3-4b-it" 
+    input_key: "original_syllogism"
+    output_key: "fol_otter_output_Gemma3Eng2FOLmultilingualNew"
+    output_type: "list"
+    task_description: "Translate multilingual sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "MultiLingFOL"
+    examples: "MultiLingexImproved"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 6
+
+
+
+  NEWQwenEng2FOL8:
+    model: "Qwen/Qwen3-4B-Instruct-2507" 
+    input_key: "syllogism"
+    output_key: "fol_otter_output_NEWQwenEng2FOL8"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexLong"
+    params:
+      # Qwen profitiert von minimalem Sampling vermeidet Loops
+      do_sample: true 
+      temperature: 0.1
+      top_p: 0.9
+      repetition_penalty: 1.1
+      max_new_tokens: 256 # Gekürzt für Speed, reicht für 10 Formeln locker
+      batch_size: 8
+
+
+
+
+  NEWEng2FOL9:
+    model: "HuggingFaceTB/SmolLM3-3B" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_NEWEng2FOL9"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexLong"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 512
+      batch_size: 16
+
+
+
+
+
+
+  NEWEng2FOL10:
+    model: "google/gemma-3-4b-it" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_NEWEng2FOL10"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexLong"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 6
+
+
+
+  Eng2FOL11:
+    model: "google/gemma-3-4b-it" # Or your preferred model
+    input_key: "syllogism"
+    output_key: "fol_otter_output_Eng2FOL11"
+    output_type: "list"
+    task_description: "Translate English sentences to First-Order Logic (Otter Syntax)"
+    system_prompt: "Eng2FOLUltrashort"
+    examples: "Eng2FOLexImprovedX"
+    params:
+      do_sample: false
+      temperature: 0.0
+      max_new_tokens: 256
+      batch_size: 6
+
