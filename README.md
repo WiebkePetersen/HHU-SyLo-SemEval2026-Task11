@@ -3,7 +3,7 @@ This Repo contains our Submission for **Semeval 2026 Task 11 : Disentangling Con
 **Lets use our Hybrid to navigate through this Syllogistic World!** 🧭🚙 
 
 🚖 Our Approach :
-Our system focuses on **reasoning disentanglement**separating strict syllogistic validity from semantic plausibility. 
+Our system focuses on **reasoning disentanglement** separating strict syllogistic validity from semantic plausibility. 
 
 To achieve this, we compare **direct neural inference** against two **hybrid neuro-symbolic pipelines**:
 1. Translation to **first-order logic (FOL)**
